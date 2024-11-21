@@ -44,14 +44,13 @@
     "@stdlib/math-base-special-abs2": "^0.2.2",
     "@stdlib/math-base-special-sqrt": "^0.2.2",
     "@stdlib/strided-base-stride2offset": "^0.1.0",
-    "@stdlib/types": "^0.4.1",
+    "@stdlib/types": "^0.4.3",
     "@stdlib/utils-define-nonenumerable-read-only-property": "^0.2.2",
     "@stdlib/utils-try-require": "^0.2.2"
   },
   "devDependencies": {
     "@stdlib/assert-is-browser": "^0.2.2",
     "@stdlib/assert-is-same-float64array": "^0.2.2",
-    "@stdlib/lapack-base-dlassq-package.json": "github:stdlib-js/lapack-base-dlassq-package.json#main",
     "@stdlib/math-base-special-pow": "^0.3.0",
     "@stdlib/random-array-discrete-uniform": "^0.2.1",
     "@stdlib/random-array-uniform": "^0.2.1",
