@@ -140,7 +140,7 @@ dlassq.ndarray( 4, X, 1, 0, 1.0, 0.0, out, 1, 0 );
 The function has the following additional parameters:
 
 -   **ox**: starting index for `X`.
--   **out**: output [`Float64Array`][mdn-float64array]
+-   **out**: output [`Float64Array`][mdn-float64array].
 -   **so**: stride length for `out`.
 -   **oo**: starting index for `out`.
 
@@ -299,7 +299,7 @@ See [LICENSE][stdlib-license].
 
 ## Copyright
 
-Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
+Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 </section>
 
