@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/lapack-base-dlassq",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Return an updated sum of squares represented in scaled form.",
   "license": "Apache-2.0",
   "author": {
