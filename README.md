@@ -61,7 +61,7 @@ where $x_i = X_{(i-1) \\cdot \\textrm{sx}}$ and $\\textrm{sx}$ is the stride of 
 ## Usage
 
 ```javascript
-import dlassq from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@deno/mod.js';
+import dlassq from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@v0.1.1-deno/mod.js';
 ```
 
 #### dlassq( N, X, strideX, scale, sumsq )
@@ -162,7 +162,7 @@ dlassq.ndarray( 4, X, 2, 0, 1.0, 0.0, out, 2, 1 );
 
 ```javascript
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
-import dlassq from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@deno/mod.js';
+import dlassq from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@v0.1.1-deno/mod.js';
 
 var X = discreteUniform( 10, -10, 10, {
     'dtype': 'float64'
