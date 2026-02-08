@@ -63,7 +63,7 @@ where $x_i = X_{(i-1) \\cdot \\textrm{sx}}$ and $\\textrm{sx}$ is the stride of 
 To use in Observable,
 
 ```javascript
-dlassq = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@umd/browser.js' )
+dlassq = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@v0.1.1-umd/browser.js' )
 ```
 
 To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
@@ -75,7 +75,7 @@ var dlassq = require( 'path/to/vendor/umd/lapack-base-dlassq/index.js' )
 To include the bundle in a webpage,
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@v0.1.1-umd/browser.js"></script>
 ```
 
 If no recognized module system is present, access bundle contents via the global scope:
@@ -189,7 +189,7 @@ dlassq.ndarray( 4, X, 2, 0, 1.0, 0.0, out, 2, 1 );
 <html lang="en">
 <body>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@v0.1.1-umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
 
