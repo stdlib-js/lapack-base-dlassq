@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-07-20)
+## Unreleased (2026-07-21)
 
 <section class="commits">
 
@@ -12,6 +12,8 @@
 
 <details>
 
+-   [`4a0c3be`](https://github.com/stdlib-js/stdlib/commit/4a0c3be4719f713b69a8ff6b66cc3b0573bf4444) - **docs:** update Markdown equation elements _(by stdlib-bot)_
+-   [`f748b45`](https://github.com/stdlib-js/stdlib/commit/f748b45d1e3b17e3ccbd096268bf186fdeaee5ab) - **docs:** update Markdown equation SVGs _(by stdlib-bot)_
 -   [`b953edd`](https://github.com/stdlib-js/stdlib/commit/b953edd95d0ca1b521d0abbd2c2719d099ff7807) - **refactor:** use `constants/float64/nan` and clean-up [(#13585)](https://github.com/stdlib-js/stdlib/pull/13585) _(by Philipp Burckhardt)_
 -   [`1625581`](https://github.com/stdlib-js/stdlib/commit/162558107026b743bb22b09701ab62f601e7058f) - **docs:** fix examples in `lapack/base` [(#12671)](https://github.com/stdlib-js/stdlib/pull/12671) _(by Philipp Burckhardt)_
 -   [`04ce2a4`](https://github.com/stdlib-js/stdlib/commit/04ce2a4f5679a2075bc2bd37e3c27b0f9cb422f7) - **bench:** refactor to use string interpolation in `lapack/base/dlassq` [(#10100)](https://github.com/stdlib-js/stdlib/pull/10100) _(by Prajjwal Bajpai)_
