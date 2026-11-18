@@ -58,51 +58,50 @@ where $x_i = X_{(i-1) \\cdot \\textrm{sx}}$ and $\\textrm{sx}$ is the stride of 
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/lapack-base-dlassq
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-dlassq = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var dlassq = require( 'path/to/vendor/umd/lapack-base-dlassq/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.dlassq;
-})();
-</script>
+var dlassq = require( '@stdlib/lapack-base-dlassq' );
 ```
 
 #### dlassq( N, X, strideX, scale, sumsq )
 
 Returns an updated sum of squares represented in scaled form.
 
+<!-- eslint-disable @cspell/spellchecker -->
+
 ```javascript
 var Float64Array = require( '@stdlib/array-float64' );
 
 var X = new Float64Array( [ 1.0, 2.0, 3.0, 4.0 ] );
+var scale = new Float64Array( [ 1.0 ] );
+var sumsq = new Float64Array( [ 0.0 ] );
 
-var out = dlassq( 4, X, 1, 1.0, 0.0 );
-// returns <Float64Array>[ 1.0, 30.0 ]
+dlassq( 4, X, 1, scale, sumsq );
+// scale => <Float64Array>[ 1.0 ]
+// sumsq => <Float64Array>[ 30.0 ]
 ```
 
 The function has the following parameters:
@@ -110,12 +109,12 @@ The function has the following parameters:
 -   **N**: number of indexed elements.
 -   **X**: input [`Float64Array`][mdn-float64array].
 -   **strideX**: stride length for `X`.
--   **scale**: scaling factor.
--   **sumsq**: basic sum of squares from which output is factored out.
+-   **scale**: [`Float64Array`][mdn-float64array] containing a single element which specifies the scaling factor and is overwritten by the updated scaling factor.
+-   **sumsq**: [`Float64Array`][mdn-float64array] containing a single element which specifies the basic sum of squares from which output is factored out and is overwritten by the updated sum of squares.
 
 Note that indexing is relative to the first index. To introduce an offset, use [`typed array`][mdn-typed-array] views.
 
-<!-- eslint-disable stdlib/capitalized-comments -->
+<!-- eslint-disable stdlib/capitalized-comments, @cspell/spellchecker -->
 
 ```javascript
 var Float64Array = require( '@stdlib/array-float64' );
@@ -126,44 +125,54 @@ var X0 = new Float64Array( [ 0.0, 1.0, 2.0, 3.0, 4.0 ] );
 // Create an offset view:
 var X1 = new Float64Array( X0.buffer, X0.BYTES_PER_ELEMENT*1 ); // start at 2nd element
 
+// Create single-element arrays for the scaling factor and the sum of squares:
+var scale = new Float64Array( [ 1.0 ] );
+var sumsq = new Float64Array( [ 0.0 ] );
+
 // Compute the sum of squares:
-var out = dlassq( X1.length, X1, 1, 1.0, 0.0 );
-// returns <Float64Array>[ 1.0, 30.0 ]
+dlassq( X1.length, X1, 1, scale, sumsq );
+// scale => <Float64Array>[ 1.0 ]
+// sumsq => <Float64Array>[ 30.0 ]
 ```
 
-The returned [`Float64Array`][mdn-float64array] contains an updated scale factor and an updated sum of squares, respectively.
-
-#### dlassq.ndarray( N, X, sx, ox, scale, sumsq, out, so, oo )
+#### dlassq.ndarray( N, X, strideX, offsetX, scale, offsetScale, sumsq, offsetSumsq )
 
 Returns an updated sum of squares represented in scaled form using alternative indexing semantics.
+
+<!-- eslint-disable @cspell/spellchecker -->
 
 ```javascript
 var Float64Array = require( '@stdlib/array-float64' );
 
 var X = new Float64Array( [ 1.0, 2.0, 3.0, 4.0 ] );
-var out = new Float64Array( [ 0.0, 0.0 ] );
+var scale = new Float64Array( [ 1.0 ] );
+var sumsq = new Float64Array( [ 0.0 ] );
 
-dlassq.ndarray( 4, X, 1, 0, 1.0, 0.0, out, 1, 0 );
-// out => <Float64Array>[ 1.0, 30.0 ]
+dlassq.ndarray( 4, X, 1, 0, scale, 0, sumsq, 0 );
+// scale => <Float64Array>[ 1.0 ]
+// sumsq => <Float64Array>[ 30.0 ]
 ```
 
 The function has the following additional parameters:
 
--   **ox**: starting index for `X`.
--   **out**: output [`Float64Array`][mdn-float64array].
--   **so**: stride length for `out`.
--   **oo**: starting index for `out`.
+-   **offsetX**: starting index for `X`.
+-   **offsetScale**: index of the element in `scale`.
+-   **offsetSumsq**: index of the element in `sumsq`.
 
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameters support indexing semantics based on starting indices. For example,
+
+<!-- eslint-disable @cspell/spellchecker -->
 
 ```javascript
 var Float64Array = require( '@stdlib/array-float64' );
 
 var X = new Float64Array( [ 1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 4.0 ] );
-var out = new Float64Array( [ 0.0, 0.0, 999.9, 0.0, 999.9 ] );
+var scale = new Float64Array( [ 0.0, 1.0 ] );
+var sumsq = new Float64Array( [ 0.0, 0.0, 0.0 ] );
 
-dlassq.ndarray( 4, X, 2, 0, 1.0, 0.0, out, 2, 1 );
-// out => <Float64Array>[ 0.0, 1.0, 999.9, 30.0, 999.9 ]
+dlassq.ndarray( 4, X, 2, 0, scale, 1, sumsq, 2 );
+// scale => <Float64Array>[ 0.0, 1.0 ]
+// sumsq => <Float64Array>[ 0.0, 0.0, 30.0 ]
 ```
 
 </section>
@@ -186,27 +195,22 @@ dlassq.ndarray( 4, X, 2, 0, 1.0, 0.0, out, 2, 1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-dlassq@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var Float64Array = require( '@stdlib/array-float64' );
+var dlassq = require( '@stdlib/lapack-base-dlassq' );
 
 var X = discreteUniform( 10, -10, 10, {
     'dtype': 'float64'
 });
 console.log( X );
 
-var out = dlassq( X.length, X, 1, 1.0, 0.0 );
-console.log( out );
+var scale = new Float64Array( [ 1.0 ] );
+var sumsq = new Float64Array( [ 0.0 ] );
 
-})();
-</script>
-</body>
-</html>
+dlassq( X.length, X, 1, scale, sumsq );
+console.log( scale );
+console.log( sumsq );
 ```
 
 </section>
@@ -215,7 +219,73 @@ console.log( out );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+TODO
+```
+
+#### TODO
+
+TODO.
+
+```c
+TODO
+```
+
+TODO
+
+```c
+TODO
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+TODO
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 * * *
 
