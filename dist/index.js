@@ -1,19 +1,11 @@
-"use strict";var G=function(q,v){return function(){try{return v||q((v={exports:{}}).exports,v),v.exports}catch(d){throw v=0,d}}};var _=G(function(s,F){"use strict";var I=require("@stdlib/math-base-assert-is-nan"),t=require("@stdlib/math-base-special-abs2"),P=require("@stdlib/math-base-special-abs"),T=require("@stdlib/math-base-special-sqrt"),b=11113793747425387e-178,S=44989137945431964e145,A=1997919072202235e131,E=14916681462400413e-170;function Q(q,v,d,j,r,i,e,p,f){var g,y,n,a,L,B,x,M,R;if(I(r)||I(i))return e;if(i===0&&(r=1),r===0&&(r=1,i=0),q<=0)return e[f]=r,e[f+p]=i,e;for(g=!0,n=0,a=0,y=0,M=j,R=0;R<q;R++)x=P(v[M]),x>A?(y+=t(x*b),g=!1):x<E?g&&(n+=t(x*S)):a+=t(x),M+=d;return i>0&&(x=r*T(i),x>A?r>1?(r*=b,y+=r*(r*i)):y+=r*(r*(b*(b*i))):x<E?g&&(r<1?(r*=S,n+=r*(r*i)):n+=r*(r*(S*(S*i)))):a+=r*(r*i)),y>0?((a>0||I(a))&&(y+=a*b*b),e[f]=1/b,e[f+p]=y,e):n>0?(a>0||I(a)?(a=T(a),n=T(n)/S,n>a?(L=a,B=n):(L=n,B=a),r=1,i=t(B)*(1+t(L/B))):(r=1/S,i=n),e[f]=r,e[f+p]=i,e):(e[f]=1,e[f+p]=a,e)}F.exports=Q});var k=G(function(c,h){"use strict";var U=require("@stdlib/array-float64"),V=require("@stdlib/strided-base-stride2offset"),W=_();function Y(q,v,d,j,r){var i,e;return e=V(q,d),i=new U(2),W(q,v,d,e,j,r,i,1,0)}h.exports=Y});var C=G(function(rr,z){"use strict";var Z=_();function $(q,v,d,j,r,i,e,p,f){return Z(q,v,d,j,r,i,e,p,f)}z.exports=$});var J=G(function(ir,H){"use strict";var o=require("@stdlib/utils-define-nonenumerable-read-only-property"),D=k(),X=C();o(D,"ndarray",X);H.exports=D});var u=require("path").join,N=require("@stdlib/utils-try-require"),l=require("@stdlib/assert-is-error"),m=J(),w,K=N(u(__dirname,"./native.js"));l(K)?w=m:w=K;module.exports=w;
-/**
-* @license Apache-2.0
-*
-* Copyright (c) 2024 The Stdlib Authors.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*    http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+"use strict";var g=function(s,a){return function(){try{return a||s((a={exports:{}}).exports,a),a.exports}catch(q){throw (a=0, q)}};};var R=g(function(N,O){
+var B=require('@stdlib/math-base-assert-is-nan/dist'),p=require('@stdlib/math-base-special-abs2/dist'),F=require('@stdlib/math-base-special-abs/dist'),M=require('@stdlib/math-base-special-sqrt/dist'),x=11113793747425387e-178,o=44989137945431964e145,_=1997919072202235e131,E=14916681462400413e-170;function H(s,a,q,b,n,t,d,f){var y,l,v,i,G,j,u,I,e,r,L;if(r=n[t],e=d[f],!(B(r)||B(e))){if(e===0&&(r=1),r===0&&(r=1,e=0),s<=0){n[t]=r,d[f]=e;return}for(y=!0,v=0,i=0,l=0,I=b,L=0;L<s;L++)u=F(a[I]),u>_?(l+=p(u*x),y=!1):u<E?y&&(v+=p(u*o)):i+=p(u),I+=q;if(e>0&&(u=r*M(e),u>_?r>1?(r*=x,l+=r*(r*e)):l+=r*(r*(x*(x*e))):u<E?y&&(r<1?(r*=o,v+=r*(r*e)):v+=r*(r*(o*(o*e)))):i+=r*(r*e)),l>0){(i>0||B(i))&&(l+=i*x*x),n[t]=1/x,d[f]=l;return}if(v>0){i>0||B(i)?(i=M(i),v=M(v)/o,v>i?(G=i,j=v):(G=v,j=i),r=1,e=p(j)*(1+p(G/j))):(r=1/o,e=v),n[t]=r,d[f]=e;return}n[t]=1,d[f]=i}}O.exports=H
+});var h=g(function(S,c){
+var J=require('@stdlib/strided-base-stride2offset/dist'),K=R();function P(s,a,q,b,n){var t=J(s,q);K(s,a,q,t,b,0,n,0)}c.exports=P
+});var w=g(function(rr,k){
+var Q=R();function U(s,a,q,b,n,t,d,f){Q(s,a,q,b,n,t,d,f)}k.exports=U
+});var C=g(function(er,A){
+var V=require('@stdlib/utils-define-nonenumerable-read-only-property/dist'),z=h(),W=w();V(z,"ndarray",W);A.exports=z
+});var Y=require("path").join,Z=require('@stdlib/utils-try-require/dist'),$=require('@stdlib/assert-is-error/dist'),m=C(),T,D=Z(Y(__dirname,"./native.js"));$(D)?T=m:T=D;module.exports=T;
+/** @license Apache-2.0 */
 //# sourceMappingURL=index.js.map

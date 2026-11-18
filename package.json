@@ -37,7 +37,6 @@
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
   "dependencies": {
-    "@stdlib/array-float64": "^0.2.3",
     "@stdlib/assert-is-error": "^0.2.3",
     "@stdlib/math-base-assert-is-nan": "^0.2.3",
     "@stdlib/math-base-special-abs": "^0.2.3",
@@ -49,8 +48,8 @@
     "@stdlib/utils-try-require": "^0.2.3"
   },
   "devDependencies": {
+    "@stdlib/array-float64": "^0.2.3",
     "@stdlib/assert-is-browser": "^0.2.3",
-    "@stdlib/assert-is-same-float64array": "^0.2.3",
     "@stdlib/math-base-special-pow": "^0.3.1",
     "@stdlib/random-array-discrete-uniform": "^0.2.2",
     "@stdlib/random-array-uniform": "^0.2.2",

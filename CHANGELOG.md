@@ -4,7 +4,19 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-11-02)
+## Unreleased (2026-11-18)
+
+<section class="breaking-changes">
+
+### BREAKING CHANGES
+
+-   [`3881298`](https://github.com/stdlib-js/stdlib/commit/388129848c187db1174c5a23006f56ec09ccfea7): use separate output arrays
+
+    -   This commit replaces a single output array with two separate output array arguments, thus more closely mirroring the underlying LAPACK API. This further allows for eventually providing separate ndarray arguments for the respective quantities, which is a general pattern we are working toward.
+
+</section>
+
+<!-- /.breaking-changes -->
 
 <section class="commits">
 
@@ -12,6 +24,8 @@
 
 <details>
 
+-   [`3881298`](https://github.com/stdlib-js/stdlib/commit/388129848c187db1174c5a23006f56ec09ccfea7) - **refactor:** update `lapack/base/dlassq` to use separate output arrays [(#15668)](https://github.com/stdlib-js/stdlib/pull/15668) _(by Ujjwal Verma, Athan Reines)_
+-   [`78ad2fa`](https://github.com/stdlib-js/stdlib/commit/78ad2fa5dbb12ce808dec93197d5343745ff91b8) - **docs:** normalize trailing newlines in REPL help texts [(#16420)](https://github.com/stdlib-js/stdlib/pull/16420) _(by Philipp Burckhardt)_
 -   [`4a0c3be`](https://github.com/stdlib-js/stdlib/commit/4a0c3be4719f713b69a8ff6b66cc3b0573bf4444) - **docs:** update Markdown equation elements _(by stdlib-bot)_
 -   [`f748b45`](https://github.com/stdlib-js/stdlib/commit/f748b45d1e3b17e3ccbd096268bf186fdeaee5ab) - **docs:** update Markdown equation SVGs _(by stdlib-bot)_
 -   [`b953edd`](https://github.com/stdlib-js/stdlib/commit/b953edd95d0ca1b521d0abbd2c2719d099ff7807) - **refactor:** use `constants/float64/nan` and clean-up [(#13585)](https://github.com/stdlib-js/stdlib/pull/13585) _(by Philipp Burckhardt)_
@@ -28,10 +42,12 @@
 
 ### Contributors
 
-A total of 2 people contributed to this release. Thank you to the following contributors:
+A total of 4 people contributed to this release. Thank you to the following contributors:
 
+-   Athan Reines
 -   Philipp Burckhardt
 -   Prajjwal Bajpai
+-   Ujjwal Verma
 
 </section>
 
